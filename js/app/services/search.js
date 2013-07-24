@@ -50,7 +50,7 @@ searchService.service("searchSvc", ["$http", function($http) {
                 }
             }
             var url = baseUrl+"search_service/search_item/";
-            url += "offset/0"+ "/size/" + this.pageSize + "/format/json";
+            url += "offset/"+this.offset+ "/size/" + this.pageSize + "/format/json";
             var search_params = {"keywords": this.keywords, "data": categories};
 
             return  $http.post(url, search_params);
@@ -84,6 +84,11 @@ searchService.service("searchSvc", ["$http", function($http) {
 
         search.get_museum_list = function(){
             var url = baseUrl + "search_service/get_museum_list/format/json";
+            return $http.get(url);
+        }
+
+        search.get_banners = function(){
+            var url = "http://localhost/sites/v12.8/"+ "banner.json";
             return $http.get(url);
         }
 

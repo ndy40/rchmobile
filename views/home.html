@@ -1,3 +1,11 @@
-<P>
-    Welcome to the home page.
-</P>
+<div class="span6" ng-controller="HomeController" ng-init="init()">
+<carousel interval="5000">
+<slide ng-repeat="banner in banners.banners" active="slide.active">
+<img ng-src="{{banners.baseUrl}}assets/images/banners/{{banner.image}}" style="margin:auto;">
+<div class="carousel-caption">
+<p>{{banner.text}}</p>
+</div>
+</slide>
+
+</carousel>
+</div>

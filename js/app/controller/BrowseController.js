@@ -19,6 +19,9 @@ App.controller("BrowseController",["$scope","searchSvc",function($scope,searchSv
 	//display collections from the selected museum
 	$scope.displayCollections = function(data,status){
 		$scope.collections = data.data.data;
+		$scope.num_of_pages = Math.floor($scope.collections.count/searchSvc.pageSize);                
+		 if($scope.current_page === undefined)
+                    $scope.current_page = 0;
 		
 	};
 
@@ -28,10 +31,27 @@ App.controller("BrowseController",["$scope","searchSvc",function($scope,searchSv
 		}else{
 			searchSvc.offset = 0;
 		}
-		searchSvc.get_collection_by_museum($scope.selected_museum.Museum).then($scope.displayCollections);
-		if($scope.current_page === 0){
-			$scope.disable_prev_btn = true;
-		}
+		if($scope.selected_museum.Museum !== undefined)
+			searchSvc.get_collection_by_museum($scope.selected_museum.Museum).then($scope.displayCollections);
+		
 	});
+	
+	$scope.prevPage = function(){
+        if($scope.current_page > 0)
+            $scope.current_page--;
+    }
+
+    $scope.nextPage = function(){
+        if($scope.current_page < $scope.num_of_pages)
+            $scope.current_page++;
+    }
+
+    $scope.hidePager = function(){
+        if($scope.current_page === undefined)
+            return false;
+        else
+            return true;
+    }
+    
 
 }]);
