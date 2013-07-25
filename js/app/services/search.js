@@ -4,7 +4,8 @@ var searchService = angular.module("RchMobile.Search", []);
 searchService.service("searchSvc", ["$http", function($http) {
         var search = {};
         //set default path to webservice API
-        var baseUrl = "http://rch.eu01.aws.af.cm/index.php/api/";
+        //var baseUrl = "http://rch.eu01.aws.af.cm/index.php/api/";
+        var baseUrl = "http://localhost/sites/v12.8/index.php/api/";
 
         var searchResult;
         search.offset = 0;
@@ -74,22 +75,32 @@ searchService.service("searchSvc", ["$http", function($http) {
 
         search.fetch_media_object = function(amoid){
             var url = baseUrl + "search_service/fetch_media_object/amoid/"+amoid+"/format/json";
-            return $http.get(url);
+            return $http.get(url,{cache:true});
         }
 
         search.get_collection_by_museum = function(museum_name){
             var url = baseUrl + "search_service/get_collection_by_museum/museum/"+museum_name+"/offset/"+this.offset+"/size/"+this.pageSize+"/format/json";
-            return $http.get(url);
+            return $http.get(url,{cache:true});
         }
 
         search.get_museum_list = function(){
             var url = baseUrl + "search_service/get_museum_list/format/json";
-            return $http.get(url);
+            return $http.get(url,{cache:true});
         }
 
         search.get_banners = function(){
-            var url = "http://localhost/sites/v12.8/"+ "banner.json";
-            return $http.get(url);
+            var url = "http://rch.eu01.aws.af.cm/"+ "banner.json";
+            return $http.get(url,{cache:true});
+        }
+
+        search.get_random_objects = function(size){
+            var url = baseUrl+"search_service/get_random_objects/size/"+size+"/format/json";
+            return $http.get(url,{cache:true});
+        }
+
+        search.get_random_videos = function(size,type){
+            var url = baseUrl+"search_service/get_random_videos/size/"+size+"/mediatype/"+ type+"/format/json";
+            return $http.get(url,{cache:true});
         }
 
         return search;

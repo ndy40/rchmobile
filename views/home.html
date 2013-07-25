@@ -6,6 +6,41 @@
 <p>{{banner.text}}</p>
 </div>
 </slide>
-
 </carousel>
+<div class="row-fluid">
+<div class="span12">
+<!-- display media listing -->
+<h4>From the Collection</h4>
+<ul class="media-list thumbnails">
+        <li ng-repeat="object in objects.data" class="media span6">
+                  <a class="pull-left" ng-href="#/viewobject/{{object.COId}}" class="span3">
+                        <img ng-src="{{object.MediaObjects.Media[0].Media.small}}" class="thumbnail"/>
+                    </a>
+                    <div class="media-body" class="span3">
+                        <h4><a ng-href="#/viewobject/{{object.COId}}">{{object.Object}}</a></h4>
+                        <p><strong>Accession Number:</strong> {{object.AccessionNumber}}</p>
+                        <p><Strong>Museum:</Strong> {{object.Museum}}</p>
+                        <p>{{object.Description | truncate:150}}</p>
+                        <p><a href="#/viewobject/{{object.COId}}">More...</a>
+                    </div>
+                    </div>
+                </li> 
+   </ul> 
+<!-- end of media listing -->
+<h4>Video Channel</h4>
+
+<ul class="thumbnails">
+	<li ng-repeat="item in media " class="span4">
+					<div class="thumbnail" >
+						<a ng-href="#/media_player/{{item.AMOId}}">
+                        <img ng-src="{{item.media.small}}" alt="{{item.AssociatedMediaTitle}}"/>        
+                        </a>
+                    </div>
+	</li>
+</ul>
+
+</div>
+</div>
+<!-- end of media section -->
+
 </div>
