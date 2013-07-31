@@ -14,7 +14,7 @@
 <ul class="media-list thumbnails">
         <li ng-repeat="object in objects.data" class="media span6">
                   <a class="pull-left" ng-href="#/viewobject/{{object.COId}}" class="span3">
-                        <img ng-src="{{object.MediaObjects.Media[0].Media.small}}" class="thumbnail"/>
+                        <img ng-src="{{object.Media[0].Media.small}}" class="thumbnail"/>
                     </a>
                     <div class="media-body" class="span3">
                         <h4><a ng-href="#/viewobject/{{object.COId}}">{{object.Object}}</a></h4>
