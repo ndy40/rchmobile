@@ -3,7 +3,7 @@
     <form class="form-inline" name="searchForm">
     <div class="span12">            
     <input type="text" ng-model="keywords" placeholder="Enter search" name="keywords" value="" class="input-medium search-query"> 
-            <button class="btn" ng-click="search_item()"><i class="icon-search"></i></button><br/>
+            <button class="btn btn-primary" ng-click="search_item()"><i class="icon-search icon-white"></i></button><br/>
     
     </div>    
           <tabset>
@@ -12,7 +12,7 @@
                 <button ng-click="tickAll($index)" class="btn-mini" >Tick All</button>
                 <ul>
                     <li ng-repeat="item in parameter.items">
-                        <input type="checkbox" ng-model="item.checked" class="in-line"> <label>{{item.name}}</label>
+                        <input type="checkbox" ng-model="item.checked"> <label>{{item.name}}</label>
                     </li>
                 </ul>
             </tab>

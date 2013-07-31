@@ -4,8 +4,8 @@ var searchService = angular.module("RchMobile.Search", []);
 searchService.service("searchSvc", ["$http", function($http) {
         var search = {};
         //set default path to webservice API
-        //var baseUrl = "http://rch.eu01.aws.af.cm/index.php/api/";
-        var baseUrl = "http://localhost/sites/v12.8/index.php/api/";
+        var baseUrl = "http://www.sierraleoneheritage.com/api/";
+        //var baseUrl = "http://localhost/sites/v12.8/index.php/api/";
 
         var searchResult;
         search.offset = 0;

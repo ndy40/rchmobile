@@ -1,0 +1,43 @@
+body{background: url(../img/bodyFade.jpg) repeat-x top left;
+border-top: 1px solid #ccc;}
+
+header {background: white url(../img/header.jpg) top center;height: 85px;border-top: 5px solid #333;
+ margin-left: -20px;margin-right: -20px;padding-left: 20px;padding-right: 20px;margin-top: -20px; position:relative;}
+header a img{margin-top:40px}
+ 
+.navbar{padding-bottom:5px; background-color:transparent;position:fixed;padding:0;width:100%;margin-left:0px;}
+.navbar-inverse .navbar-inner { background-color:transparent;background-image:none;border-color: transparent;}
+.navbar-inverse .brand{color:#a1c27c;}
+.navbar-inverse .nav .active > a, .navbar-inverse .nav .active > a:hover, 
+.navbar-inverse .nav .active > a:focus{color:#000;background-color:transparent}
+.navbar-inverse .brand, .navbar-inverse .nav > li > a {color:#fff;text-shadow: 0 -1px 0 transparent;}
+.navbar-inverse .nav-collapse .nav > li > a, .navbar-inverse .nav-collapse .dropdown-menu a {color:#a1c27c}
+.navbar-inverse .nav-collapse .nav > li {border-bottom:0px solid #a1c27c}
+
+
+.mytab {background-color:#333}
+.noliststyle{list-style:none}
+
+.bold{font-weight:bold}
+.clear {clear: both;}
+.hide{display:none}
+.clearh1 {clear: both;height:1px}
+.clearh2 {clear: both;height:2px}
+.clearh3 {clear: both;height:3px}
+.clearh5 {clear: both;height:5px}
+.clearh10 {clear: both;height:10px}
+.clearh20 {clear: both;height:20px}
+.clearh30 {clear: both;height:30px}
+.clearh50 {clear: both;height:50px}
+.margintop5{margin-top:5px}
+ .marginbottom5{margin-bottom:5px}
+ .paddingtop5{padding-top:5px}
+ .paddingbottom5{padding-bottom:5px}
+ .margintop10{margin-top:10px}
+ .marginbottom10{margin-bottom:10px}
+ .paddingtop10{padding-top:10px}
+ .paddingbottom10{padding-bottom:10px}
+ .margintop20{margin-top:20px}
+ .marginbottom20{margin-right:20px}
+ .paddingtop20{padding-top:20px}
+ .paddingbottom20{padding-bottom:20px;}

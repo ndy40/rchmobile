@@ -5,7 +5,7 @@ App.controller("SearchController",function($scope,$location,searchSvc){
         
     //method to send and retrieve search results
     $scope.search_item = function(){
-            searchSvc.offset =  $scope.current_page * searchSvc.pageSize ;
+            searchSvc.offset =  $scope.current_page === undefined ? 0 : ($scope.current_page * searchSvc.pageSize) ;
             //set the keywords
             searchSvc.keywords = ($scope.keywords === undefined)? "":$scope.keywords ;
             //set the parameters for search
