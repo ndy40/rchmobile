@@ -3,22 +3,21 @@
  <!-- load media objects -->
  <div class="span12" ng-switch on="media.AssociatedMediaType">
 
- <div class="auto-resizable-video video-js-box" ng-switch-when="Video">
- <div class="span6">
- 		 <video id="video_player" class="video-js" width="640" height="480" controls="controls" preload="none" video-poster video-poster-url="{{media.media.medium}}" autoplay mediaelementplayer="{enableAutosize:true,enableKeyboard:true}">
-<source ng-src= "{{media.media.media}}.ogv" type='video/ogg' />
-                <source ng-src= "{{media.media.media}}.flv" type='video/flv' />
-                <source ng-src= "{{media.media.media}}.mp4" type='video/mp4' />
+ <div class="span12" ng-switch-when="Video">
+ 	 <video id="video_player" class="video-js vjs-default-skin span8" height="65%" width="90%" controls preload="auto" video-poster video-poster-url="{{media.media.large}}" autoplay fullscreenvideo>
+                <source ng-src= "{{media.media.media}}.ogv" type="video/ogg; codecs="theora, vorbis"" />
+                <source ng-src= "{{media.media.media}}.flv" type="video/flv; codecs="avc1.42E01E, mp4a.40.2"" />
+                <source ng-src= "{{media.media.media}}.mp4" type="video/mp4; codecs="avc1.42E01E, mp4a.40.2"" />
                 <!-- Flash Fallback. Use any flash video player here. Make sure to keep the vjs-flash-fallback class. -->
                 <object id="flash_fallback_1" class="vjs-flash-fallback" width="640" height="480" type="application/x-shockwave-flash" data="data/flashmediaelement.swf">
                     <param name="movie" value="data/flashmediaelement.swf" />
                     <param name="flashvars" value='controls=true&file={{media.media.media}}.mp4' />    
                     <!-- Image Fallback. Typically the same as the poster image. -->
-                    <img ng-src="{{media.media.medium}}" width="640" height="480" alt="Poster Image" title="No video playback capabilities."/>
+                    <img ng-src="{{media.media.large}}" width="640" height="480" alt="Poster Image" title="No video playback capabilities."/>
                 </object>
             </video>
 
-  </div>
+ 
 </div>
 <div class="audioplayer" ng-switch-when="Audio" >
 	<audio id="audio" mediaelementplayer="{enableAutosize:true,enableKeyboard:true}" autoplay>

@@ -1,7 +1,8 @@
 App.controller("BrowseController",["$scope","searchSvc",function($scope,searchSvc){
 	//initialisation function for controller
 	$scope.init = function(){
-		searchSvc.get_museum_list().then($scope.bindMuseumList);		
+		searchSvc.get_museum_list().then($scope.bindMuseumList);
+		searchSvc.pageSize = 12;		
 	};
 
 	$scope.bindMuseumList = function(data,status){
@@ -19,7 +20,7 @@ App.controller("BrowseController",["$scope","searchSvc",function($scope,searchSv
 	//display collections from the selected museum
 	$scope.displayCollections = function(data,status){
 		$scope.collections = data.data.data;
-		$scope.num_of_pages = Math.floor($scope.collections.count/searchSvc.pageSize);                
+		$scope.num_of_pages = Math.floor($scope.collections.count/$scope.collections.size);                
 		 if($scope.current_page === undefined)
                     $scope.current_page = 0;
 		

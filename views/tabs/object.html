@@ -6,9 +6,9 @@
 		</p>
 		<div class="row-fluid" >
 		<div class="span6 offset2">
-			<carousel interval="5000">
-			<slide ng-repeat="image in object_info.Media" >
-				<img ng-src="{{image.Media.medium}}" style="margin:auto;">
+			<carousel interval="5000" >
+			<slide ng-repeat="image in object_info.Media">
+				<img ng-src="{{image.Media.medium}}" style="margin:auto;" fullsizable fullsizable-large="{{image.Media.large}}"/>
 			</slide>
 			</carousel>		
 	</div>	

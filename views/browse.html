@@ -1,39 +1,28 @@
-<div class="row-fluid" ng-controller="BrowseController" ng-init="init()">
-<form>
-<div class="span12">
-<label for="collection" class="control-label">Collection </label> 
-<select name="collection" id="collection" ng-model="selected_museum" ng-options="names.Museum for names in museum_names" class="span3">
-</select>
-<!-- display data region beginning-->
+<div ng-controller="BrowseController" ng-init="init()" class="row-fluid">
+    <div class="span12 form-inline">
+        <form class="form-inline">
+            <label for="collection" class="control-label">Collection </label> 
+            <select name="collection" id="collection" ng-model="selected_museum" ng-options="names.Museum for names in museum_names" class="span3">
+            </select>
+        </form>
+        <div class="row-fluid">
+            <ul class="media-list span12">
+                <li ng-repeat="object in collections.Objects" class="pull-left" style="margin-right:20px;">
+                    <a ng-href="#/viewobject/{{object.COId}}">
+                        <img ng-src="{{object.MediaObjects[0].Media.medium}}" class="media-object"/>
+                        <h4 class="media-heading text-center">{{object.Object| truncate:40}}</h4>
+                    </a>              
+                </li>
+            </ul>
+            <div class="pagination pagination-large">
+                <ul>
+                    <li><button ng-click="prevPage()" class="btn  btn-small">
+                            <i class="icon-chevron-left"></i></button></li>
+                    <li><button ng-click="nextPage()" class="btn  btn-small" type="button">
+                            <i class="icon-chevron-right"></i></button></li>
+                </ul>
+            </div> 
+        </div>    
+    </div>   
 
-<!-- display results as thumbnails -->
-<ul class="thumbnails span12">
-<li class="span4" ng-repeat="object in collections.Objects">
-		<div class="thumbnail">
-		<a ng-href="#/viewobject/{{object.COId}}">
-			<img ng-src="{{object.MediaObjects.Media[0].Media.medium}}" alt="{{object.Object}}" width="auto" height="auto"  class="img-rounded" />
-			<h4 class="text-center">{{object.Object}}</h4>
-			</a>
-		</div>
-	</li>		
-</ul>
-<div class="pagination offset2" ng-show="hidePager($event)"> 
-           <ul>
-           <li ng-class="{disabled: current_page == 0}">
-               <a href ng-click="prevPage()">
-                    <i class="icon-arrow-left"></i> Prev</a>
-           </li>
-           <li ng-class="{disabled: current_page == num_of_pages -1}">
-               <a href ng-click="nextPage()">Next 
-                    <i class="icon-arrow-right"></i></a>
-           </li>
-           <li><a href>Pages {{current_page + 1}} of {{num_of_pages}}</a></li>
-           </ul>
-           
-   </div>
-
-</div>
-<!-- end of disply records -->
-</div>
-</form>
 </div>

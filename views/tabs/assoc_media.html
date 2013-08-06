@@ -1,11 +1,10 @@
-
-<ul class="thumbnails">
-	<li ng-repeat="media in object_info.associated_media">
-					<div class="thumbnail" >
-						<a ng-href="#/media_player/{{media.AMOId}}">
+<div class="span12">
+<div class="row-fluid">
+	<div ng-repeat="media in object_info.associated_media" class="span3">
+					<a ng-href="#/media_player/{{media.AMOId}}">
                         <img ng-src="{{media.MediaObjects.small}}" alt="{{media.MediaObjects.AssociatedMediaTitle}}" />        
-                        </a>
-                    </div>
-	</li>
-</ul>
+                        </a>                    
+	</div>
+</div>
+</div>
 

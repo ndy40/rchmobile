@@ -4,8 +4,9 @@ var searchService = angular.module("RchMobile.Search", []);
 searchService.service("searchSvc", ["$http", function($http) {
         var search = {};
         //set default path to webservice API
-        var baseUrl = "http://www.sierraleoneheritage.com/api/";
-        //var baseUrl = "http://localhost/sites/v12.8/index.php/api/";
+        var baseUrl = "http://www.sierraleoneheritage.org/api/";
+        //var baseUrl = "http://localhost/Sites/v12.8/index.php/api/";
+        //var baseUrl = "http://www.rch.eu01.aws.af.cm/index.php/api/";
 
         var searchResult;
         search.offset = 0;
@@ -30,7 +31,7 @@ searchService.service("searchSvc", ["$http", function($http) {
                     var items = [];
                     var itemValues = data.parameters[i].params;
                     for (j = 0; j < itemValues.length; j++) {
-                        items.push({"name": itemValues[j].name, "value": itemValues[j].value, "checked": true});
+                        items.push({"name": itemValues[j].name, "value": itemValues[j].value, "checked": true   });
                     }
                     params.push({"group": name, "key": key, items: items});
                 }
@@ -40,19 +41,9 @@ searchService.service("searchSvc", ["$http", function($http) {
 //       
         search.search_item = function() {
             result = [];
-            categories = this.parameters;
-            //filter unchecked attributes from searchcategories
-            for (i = 0; i < categories.length; i++) {
-                //get all items in the collection and remove unchecked attributes
-                for (j = 0; j < categories[i].items.length; j++) {
-                    if (!categories[i].items[j].checked) {
-                        categories[i].items.splice(j, 1);
-                    }
-                }
-            }
             var url = baseUrl+"search_service/search_item/";
             url += "offset/"+this.offset+ "/size/" + this.pageSize + "/format/json";
-            var search_params = {"keywords": this.keywords, "data": categories};
+            var search_params = {"keywords": this.keywords, "data": this.parameters};
 
             return  $http.post(url, search_params);
         };
@@ -85,7 +76,7 @@ searchService.service("searchSvc", ["$http", function($http) {
 
         search.get_museum_list = function(){
             var url = baseUrl + "search_service/get_museum_list/format/json";
-            return $http.get(url,{cache:true});
+            return $http.get(url);
         }
 
         search.get_banners = function(){

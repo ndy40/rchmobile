@@ -1,20 +1,21 @@
-<div ng-controller="ViewObjectController" ng-init="init()">
-<div class="tabbable nav-tabs">
+<div class="row-fluid">
+<div ng-controller="ViewObjectController" ng-init="init()" class="span12">
+<!--<div class="tabbable nav-tabs"> -->
 	<ul class="nav nav-tabs">
 		<li ng-class="{active: active_tab == 'object'}"><a ng-click="active_tab = 'object'">Object</a></li>
 		<li ng-class="{active: active_tab == 'furtherinfo'}"><a ng-click="active_tab = 'furtherinfo'">Further Info</a></li>
 		<li ng-class="{active: active_tab == 'relatedobjects'}"><a ng-click="active_tab = 'relatedobjects'">Related</a></li>
 		<li ng-class="{active: active_tab == 'media'}"><a ng-click="active_tab = 'media'">Media</a></li>
 	</ul>
-	<div class="tab-content">
-		<div ng-switch="active_tab">
-			<div ng-switch-when="object" ng-include="'views/tabs/object.html'"></div>
-			<div ng-switch-when="furtherinfo" ng-include="'views/tabs/furtherinfo.html'"></div>
-			<div ng-switch-when="relatedobjects" ng-include="'views/tabs/relatedobjects.html'"></div>
-			<div ng-switch-when="media" ng-include="'views/tabs/assoc_media.html'"></div>
+	<div class="tab-content row-fluid">
+		<div ng-switch="active_tab" class="span12">
+			<div ng-switch-when="object" ng-include="'views/tabs/object.html'" class="row-fluid"></div>
+			<div ng-switch-when="furtherinfo" ng-include="'views/tabs/furtherinfo.html'" class="row-fluid"></div>
+			<div ng-switch-when="relatedobjects" ng-include="'views/tabs/relatedobjects.html'" class="row-fluid"></div>
+			<div ng-switch-when="media" ng-include="'views/tabs/assoc_media.html'" class="row-fluid"></div>
 		</div>	
 		
-	</div>
-
-</div>
-</div>
+</div> 
+<!--</div> <!-- end of tab definition -->
+</div> <!-- end of controller div definition
+</div> <!-- end of row-fluid -->
