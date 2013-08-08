@@ -4,26 +4,27 @@ var App = angular.module("RchMobile",["RchMobile.Search","ui.bootstrap","filters
 //configure route for the entire application
 App.config(["$routeProvider",function($routeProvider){
         $routeProvider.when("/",{
+            title: "Home",
             templateUrl: "views/home.html",
             controller: "HomeController"
         })
         .when("/search",{
+            title: "Search",
             templateUrl: "views/searchform.html",
             conroller: "SearchController"
-        })
-       .when("/search_results",{
-            templateUrl:"views/search_results.html",
-            controller:"SearchController"
-        })
+        })       
        .when("/viewobject/:coid",{
+        title: "Cultural Object",
         templateUrl: "views/view_object.html",
         controller: "ViewObjectController"
        })
        .when("/media_player/:amoid",{
+            title: "Media",
             templateUrl: "views/play_media.html",
             controller: "ViewMediaController"
        })
        .when("/browse",{
+          title: "Browse",
           templateUrl: "views/browse.html",
           controller: "BrowseController"
        })
@@ -45,6 +46,12 @@ App.config(["$httpProvider",function($httpProvider){
 
        $httpProvider.defaults.transformRequest.push(spinnerFunction);
 }]);
+
+App.run(function($rootScope){
+  $rootScope.$on('$routeChangeSuccess',function(event,current,previous){
+    $rootScope.title = current.title;
+  });
+});
 
 App.factory("ajaxHttpInterceptor",function($q,$window){
   return function(promise){

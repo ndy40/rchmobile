@@ -1,28 +1,54 @@
 <div ng-controller="BrowseController" ng-init="init()" class="row-fluid">
-    <div class="span12 form-inline">
-        <form class="form-inline">
-            <label for="collection" class="control-label">Collection </label> 
-            <select name="collection" id="collection" ng-model="selected_museum" ng-options="names.Museum for names in museum_names" class="span3">
-            </select>
-        </form>
-        <div class="row-fluid">
-            <ul class="media-list span12">
-                <li ng-repeat="object in collections.Objects" class="pull-left" style="margin-right:20px;">
-                    <a ng-href="#/viewobject/{{object.COId}}">
-                        <img ng-src="{{object.MediaObjects[0].Media.medium}}" class="media-object"/>
-                        <h4 class="media-heading text-center">{{object.Object| truncate:40}}</h4>
-                    </a>              
+    <div class="span12">
+        <div class="btn-group">
+            <button class="btn">Collections</button>
+            <button class="btn dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li ng-repeat="names in museum_names">
+                    <a preventDefault ng-click="collectionSelect($index)">{{names.Museum}}</a>
                 </li>
-            </ul>
-            <div class="pagination pagination-large">
-                <ul>
-                    <li><button ng-click="prevPage()" class="btn  btn-small">
-                            <i class="icon-chevron-left"></i></button></li>
-                    <li><button ng-click="nextPage()" class="btn  btn-small" type="button">
-                            <i class="icon-chevron-right"></i></button></li>
-                </ul>
-            </div> 
-        </div>    
-    </div>   
+            </ul>            
+        </div><p style="margin-top:30px;" class="text-info" ng-show="!collections.Objects.length">Select a Museum from the above dropdown to browse collections</p>
+    </div>
+        <div class="marginbottom20"></div>       
 
+        <div ng-show="collections.Objects.length" class="row-fluid">
+            <h3 class="sect_header">{{selected_museum.Museum}}</h3>
+            <div class="span12">
+                <ul class="media-list">
+                    <li ng-repeat="object in collections.Objects" class="pull-left marginright20 marginbottom20 paddingbottom10 box" with="auto">
+                        <a ng-href="#/viewobject/{{object.COId}}" class="pull-left marginright20">
+                            <img ng-src="{{object.MediaObjects[0].Media.small}}" class="media-object" align="top"/>
+                            <h4 class="media-heading text-center hidden-phone hidden-tablet">{{object.Object| truncate:40}}</h4>
+                        </a>             
+                        <div class="media-body hidden-desktop">
+                        <ul class="unstyled">
+                            <li>
+                                <p><strong>Object:</strong> : {{object.Object}}</p>
+                                <p>{{object.Description| truncate: 100}}</p>
+                                <p><strong>Accession Number</strong>:{{object.AccessionNumber}}
+
+                            </li>
+                        </ul>
+                        </div>
+
+                    </li>                    
+                </ul> 
+                <div class="row-fluid">
+                    <div class="pager span9">
+                        <ul>
+                            <li class="previous"><a href="#" ng-click="prevPage()" preventDefault>Previous</a></li>
+                            <li class="next"><a href="#" ng-click="nextPage()" preventDefault>Next</a></li>
+                        </ul>
+                    </div> 
+                    <div class="span3"></div>
+
+                </div> 
+            </div>
+
+        </div>           
+        
+    
 </div>

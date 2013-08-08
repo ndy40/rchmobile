@@ -54,5 +54,9 @@ App.controller("BrowseController",["$scope","searchSvc",function($scope,searchSv
             return true;
     }
     
+    $scope.collectionSelect = function(index){
+        $scope.selected_museum = $scope.museum_names[index];
+    }
+    
 
 }]);

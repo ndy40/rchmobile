@@ -86,12 +86,12 @@ searchService.service("searchSvc", ["$http", function($http) {
 
         search.get_random_objects = function(size){
             var url = baseUrl+"search_service/get_random_objects/size/"+size+"/format/json";
-            return $http.get(url,{cache:true});
+            return $http.get(url);
         }
 
         search.get_random_videos = function(size,type){
             var url = baseUrl+"search_service/get_random_videos/size/"+size+"/mediatype/"+ type+"/format/json";
-            return $http.get(url,{cache:true});
+            return $http.get(url);
         }
 
         return search;

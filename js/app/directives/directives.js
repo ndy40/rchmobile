@@ -3,6 +3,7 @@ App.directive("videoPoster",function(){
 	return{
 		restrict: "A",
 		link: function postLink(scope,iElement,iAttrs){
+                        videojs.options.flash.swf = "js/lib/video-js.swf"; 
 			iAttrs.$observe("videoPosterUrl",function(value){
 				iElement.attr("poster",value);
 			});
@@ -43,17 +44,6 @@ App.directive('fullscreenvideo',function(){
 	};
 });
 
-App.directive('backhistory',function($window){
-	return {
-		restrict: "A",
-		link: function(scope,iElement,iAttrs){
-			iElement.on("click",function(){
-				$window.history.back();
-			})
-		}
-	}
-});
-
 App.directive('closecollapsemenu',function(){
 	return {
 		restrict: "A",
@@ -62,8 +52,29 @@ App.directive('closecollapsemenu',function(){
 				$(".nav-collapse").collapse('hide');
 			});
 		}
-	}
-})
+	};
+});
+
+App.directive("preventDefault",function(){
+    return {
+        restrict:"A",
+        link: function($scope,iElement,iAttrs){
+            $(iElement).click(function(event){
+               event.preventDefault();
+            });
+        }
+    };
+});
+App.directive("affix",function(){
+    return {
+        restrict:"A",
+        link: function($scope,iElement,iAttrs){
+            $(iElement).affix({
+                offset:{ top: 100 }
+            });
+        }
+    };
+});
 
 
 

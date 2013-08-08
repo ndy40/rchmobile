@@ -67,13 +67,127 @@
 
 .mainbody {
   height:100%;
-  margin-top: 5%;  
+  margin-top: 4.8em ;   
 }
  
 .bg{
-  background: url(../img/bg.png) repeat-x top left;
+  background: url(../img/bg.png) repeat-x;
+  bottom: 0;
+  position: absolute;  
 }
-.marginbottom20{margin-bottom:20px;}
+.marginbottom20{margin-bottom: 1em;}
 .margintop20{margin-top:20px;}
+.margingright10{margin-right: 10px;}
+.marginleft10{margin-left: 0.65em;}
+.marginright20{margin-right: 1.2em;}
+.marginleft20{margin-left: 20px;}
+.paddingbottom10 { padding-bottom: 0.5em;}
+.paddingright10{padding-right: 0.5em;}
+.paddingleft10{padding-left: 0.5em;}
 
+
+
+@media screen and (max-width: 760px){
+    .mainbody{
+        margin-top: 10px;
+    }
+}
+html,body{
+    height: 100%;
+}
+
+body{background: url(../img/bodyFade.jpg) repeat-x top left;
+
+}
+
+
+#wrapper{
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -10px;
+}
+
+#push, #footer{
+    height:10px;
+}
+
+#footer{
+   background: url(../img/bg.png) repeat-x top left;
+}
+
+
+#wrapper > .container{
+    padding-top: 10px;
+}
+
+@media (max-width:979px){
+    .navbar-fixed-top,
+    .navbar-fixed-bottom{
+        position: fixed;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    
+    #wrapper > .container{
+        padding-top: 50px;
+    }      
+
+  .navbar .brand{
+  margin-left: 5%;
+  margin-right: auto;
+  width: auto;
+  float: none;
+  }  
+
+  .navbar .btn-navbar .icon-bar{
+    background-color: #659133;
+  }  
+
+  
+  .box{
+  border-radius: 5px;
+  border: 1px solid #dfdfdf;
+  width:100%;
+  padding-left: 1.2em;
+  }
+}
+
+
+.navbar .brand{
+    color:white;
+  }
+
+
+.box{
+  border-radius: 5px;
+  border: 1px solid #dfdfdf;
+  background-color: #fdfdfd;
+  padding-top: 1.2em;
+}
+
+.navbar-inner{
+    background-image: linear-gradient(bottom, rgb(83,128,28) 41%, rgb(44,117,32) 73%);
+background-image: -o-linear-gradient(bottom, rgb(83,128,28) 41%, rgb(44,117,32) 73%);
+background-image: -moz-linear-gradient(bottom, rgb(83,128,28) 41%, rgb(44,117,32) 73%);
+background-image: -webkit-linear-gradient(bottom, rgb(83,128,28) 41%, rgb(44,117,32) 73%);
+background-image: -ms-linear-gradient(bottom, rgb(83,128,28) 41%, rgb(44,117,32) 73%);
+
+background-image: -webkit-gradient(
+  linear,
+  left bottom,
+  left top,
+  color-stop(0.41, rgb(83,128,28)),
+  color-stop(0.73, rgb(44,117,32))
+);
+}
+
+.sect_header{
+  color:#527571;
+}
+
+ul.objectInfo li,ol.objectInfo li{
+  background: url(../img/bullet.png) no-repeat 0 6px;
+  padding: 0.2em 0 0.2em 1.2em;
+}
 
