@@ -77,10 +77,11 @@ and open the template in the editor.
         <script type="text/javascript" src="js/lib/json2.js"></script>
         <![endif] -->
 <!-- Load phonegap Javascript libraries -->
-      <script type="text/javascript" src="js/lib/cordova.js"></script>
+      <script type="text/javascript" src="cordova.js"></script>
       <script type="text/javascript" src="js/app/vendor/index.js"></script>
       <script type="text/javascript">
-            app.initialize();
+            //app.initialize();
+            angular.bootstrap(document,["RchMobile"]);
         </script>
         
     </body>
