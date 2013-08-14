@@ -6,6 +6,7 @@
                     <i class="icon-search icon-white"></i>              
                 </button> 
         </div>
+        <div class="text-error clearfix" ng-show="no_items_found"><p>No result returned for search query</p></div>
         <div class="marginbottom20 margintop20"></div>
         <tabset>
                     <tab ng-repeat="parameter in search.parameters" id="{{parameter.group}}" heading="{{parameter.group}}" active="parameter.active" disabled="parameter.disabled">

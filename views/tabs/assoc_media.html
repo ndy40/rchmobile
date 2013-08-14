@@ -1,10 +1,10 @@
 <div class="span12">
-<div class="row-fluid">
-	<div ng-repeat="media in object_info.associated_media" class="span3">
+	<div ng-repeat="media in object_info.associated_media" class="imagebox">
 					<a ng-href="#/media_player/{{media.AMOId}}">
                         <img ng-src="{{media.MediaObjects.small}}" alt="{{media.MediaObjects.AssociatedMediaTitle}}" />        
                         </a>                    
 	</div>
-</div>
+	<span class="text-error" ng-show="!object_info.associated_media.length"><p>No available media</p></span>
+
 </div>
 

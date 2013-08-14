@@ -5,6 +5,7 @@ App.controller("SearchController",["$scope","$location","searchSvc",function($sc
         var filters = searchSvc.getParameters();
         $scope.hide_form = false;
         $scope.search = {"keywords":"","parameters":filters};
+        $scope.no_items_found = false;
 
 
     //method to send and retrieve search results
@@ -26,7 +27,9 @@ App.controller("SearchController",["$scope","$location","searchSvc",function($sc
                 searchCriteria.push({"group":group,"items":items,"key":key});
             }
             searchSvc.parameters = searchCriteria;
-            searchSvc.search_item().then($scope.buildResult);       
+            searchSvc.search_item().then($scope.buildResult,function(status){
+                $scope.no_items_found = true; 
+            });       
     };
     
     $scope.tickNone = function(i){
@@ -57,8 +60,7 @@ App.controller("SearchController",["$scope","$location","searchSvc",function($sc
                 $scope.search_results = tempResult;
                 $scope.num_of_pages = Math.floor($scope.search_results.count/$scope.search_results.size);                
                 if(tempResult.data.length == 0){
-                    $scope.no_items_found = true; 
-                                                       
+                    $scope.no_items_found = true;                                                        
                 }else{
                     $scope.hide_form = true;
                     $scope.no_items_found = false;

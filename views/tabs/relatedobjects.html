@@ -2,15 +2,16 @@
 <ul class="media-list">
             <li ng-repeat="object in object_info.related_objects" class="media">
                   <a class="pull-left" ng-href="#/viewobject/{{object.COId}}">
-                        <img ng-src="{{object.MediaObjects.Media[0].Media.small}}" />
+                        <img ng-src="{{object.MediaObjects[0].Media.small}}" />
                     </a>
                     <div class="media-body">
                         <h4 class="media-heading"><a ng-href="#/viewobject/{{object.COId}}">{{object.Object}}</a></h4>
                         <p><strong>Accession Number:</strong> {{object.AccessionNumber}}</p>
                         <p><Strong>Museum:</Strong> {{object.Museum}}</p>
                         <p>{{object.Description | truncate:100}}</p>
-                        <p><a href="#/viewobject/{{object.COId}}">More...</a>
+                        <p><a ng-href="#/viewobject/{{object.COId}}" class="btn btn-info btn-small">View</a>
                     </div>                    
                 </li>
             </ul>
+<span class="text-error" ng-show="!object_info.related_objects"><p>No related objects</p></span>
 </div>

@@ -1,5 +1,5 @@
 
-var App = angular.module("RchMobile",["RchMobile.Search","ui.bootstrap","filters"]);
+var App = angular.module("RchMobile",["RchMobile.Search","ui.bootstrap","filters","LocalStorageModule"]);
 
 //configure route for the entire application
 App.config(["$routeProvider",function($routeProvider){
@@ -44,7 +44,7 @@ App.config(["$httpProvider",function($httpProvider){
         return data;
        };
 
-       $httpProvider.defaults.transformRequest.push(spinnerFunction);
+      $httpProvider.defaults.transformRequest.push(spinnerFunction);
 }]);
 
 App.run(function($rootScope){

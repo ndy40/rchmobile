@@ -1,20 +1,14 @@
 <div class="span12">
-	<div class="row-fluid">
-		<div class="span12">
 		<h4>{{object_info.Object}}</h4>
-		<p>
-		{{object_info.Description}}
-		</p>
-		<div class="row-fluid" >
-		<div class="span6 offset2">
-			<carousel interval="5000" >
-			<slide ng-repeat="image in object_info.Media">
-				<img ng-src="{{image.Media.medium}}" style="margin:auto;" fullsizable fullsizable-large="{{image.Media.large}}"/>
-			</slide>
-			</carousel>		
-	</div>	
-		</div>
-			</div>
-		
-	</div>
+			<p>
+			{{object_info.Description}}
+			</p>
+            <div class="row-fluid margintop20" ng-show="object_info.Media.length">
+    			<carousel internal="3000" class="span12">
+                    <slide active="image.active" ng-repeat="image in object_info.Media" style="margin:auto;">
+                       <img ng-src="{{image.Media.medium}}" style="margin:auto;"/>                    
+                    </slide>					
+    			 </carousel>
+            </div>
+      
 </div>

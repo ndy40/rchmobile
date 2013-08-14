@@ -47,4 +47,6 @@ App.controller("ViewObjectController",["$scope","$routeParams","searchSvc",funct
 	$scope.loadAssocMedia = function(data,status){
 		$scope.object_info.associated_media = data.data.data;
 	}
+	
+	
 }]);

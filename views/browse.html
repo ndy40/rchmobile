@@ -16,6 +16,7 @@
 
         <div ng-show="collections.Objects.length" class="row-fluid">
             <h3 class="sect_header">{{selected_museum.Museum}}</h3>
+            <em>{{collections.count}} result(s) found</em>
             <div class="span12">
                 <ul class="media-list">
                     <li ng-repeat="object in collections.Objects" class="pull-left marginright20 marginbottom20 paddingbottom10 box" with="auto">
@@ -26,9 +27,10 @@
                         <div class="media-body hidden-desktop">
                         <ul class="unstyled">
                             <li>
-                                <p><strong>Object:</strong> : {{object.Object}}</p>
+                                <p><strong>Object:</strong> : <a ng-href="#/viewobject/{{object.COId}}">{{object.Object}}</a></p>
                                 <p>{{object.Description| truncate: 100}}</p>
-                                <p><strong>Accession Number</strong>:{{object.AccessionNumber}}
+                                <p><strong>Accession Number</strong>:{{object.AccessionNumber}}</p>
+                                <a ng-href="#/viewobject/{{object.COId}}" class="btn btn-info btn-small">View</a>
 
                             </li>
                         </ul>
@@ -39,8 +41,8 @@
                 <div class="row-fluid">
                     <div class="pager span9">
                         <ul>
-                            <li class="previous"><a href="#" ng-click="prevPage()" preventDefault>Previous</a></li>
-                            <li class="next"><a href="#" ng-click="nextPage()" preventDefault>Next</a></li>
+                            <li class="previous"><button ng-click="prevPage()" class="pull-left btn btn-small btn-primary">Previous</button></li>
+                            <li class="next"><button ng-click="nextPage()" class="pull-right btn btn-small btn-primary">Next</button></li>
                         </ul>
                     </div> 
                     <div class="span3"></div>

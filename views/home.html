@@ -1,47 +1,45 @@
 <div class="row-fluid" ng-controller="HomeController">
-<div class="span12">
-    <div class="row-fluid">
-        <carousel interval="5000" class="span8 offset2">
-        <slide ng-repeat="banner in banners.banners" active="slide.active">
-        <img ng-src="{{banners.baseUrl}}assets/images/banners/{{banner.image}}" style="margin:auto;">
-        <div class="carousel-caption">
-        <p>{{banner.text}}</p>
-        </div>
-        </slide>
-        </carousel>
-         <!-- just to pad the right side -->
-    </div>
-<div class="row-fluid">
-<div class="span12">
-<!-- display media listing -->
-<h3 class="sect_header">From the Collection</h3>
-<ul class="media-list">
-        <li ng-repeat="object in objects.data" class="media">
-                  <a class="pull-left" ng-href="#/viewobject/{{object.COId}}">
-                        <img ng-src="{{object.Media[0].Media.small}}"/>
-                    </a>
-                    <div class="media-body">
-                        <h4><a ng-href="#/viewobject/{{object.COId}}">{{object.Object}}</a></h4>
-                        <p><strong>Accession Number:</strong> {{object.AccessionNumber}}</p>
-                        <p><Strong>Museum:</Strong> {{object.Museum}}</p>
-                        <p>{{object.Description | truncate:200}}</p>
-                        <p><a href="#/viewobject/{{object.COId}}">More...</a>
-                    </div>                    
-                </li> 
-   </ul> 
-</div>
-</div> <!-- end of image row fluid -->
-<!-- end of media listing -->
-<!--<div class="row-fluid">
-<div class="span12">
-<h4>Video Channel</h4>
-<ul class="thumbnails">
-	<li ng-repeat="item in media " class="span6">
-					<a ng-href="#/media_player/{{item.AMOId}}">
-                        <img ng-src="{{item.media.small}}"/>        
-                        </a>                    
-	</li>
-</ul>
-</div> 
-</div><!-- end of media section --> 
-</div>
+	<div class="span12">
+		<div class="row-fluid">
+			<carousel interval="5000" class="span11 offset1"> <slide
+				ng-repeat="banner in banners.banners" active="slide.active">
+			<img
+				ng-src="{{banners.baseUrl}}assets/images/banners/{{banner.image}}"
+				style="margin: auto;">
+			<div class="carousel-caption">
+				<p>{{banner.text}}</p>
+			</div>
+			</slide> 
+		</carousel>
+			<!-- just to pad the right side -->
+		</div>
+		<div class="row-fluid">
+			<div class="span12">
+				<!-- display media listing -->
+				<h3 class="sect_header">From the Collection</h3>
+				<ul class="media-list">
+					<li ng-repeat="object in objects.data" class="media"><a
+						class="pull-left" ng-href="#/viewobject/{{object.COId}}"> <img
+							ng-src="{{object.Media[0].Media.small}}" />
+					</a>
+						<div class="media-body">
+							<h4>
+								<a ng-href="#/viewobject/{{object.COId}}">{{object.Object}}</a>
+							</h4>
+							<p>
+								<strong>Accession Number:</strong> {{object.AccessionNumber}}
+							</p>
+							<p>
+								<Strong>Museum:</Strong> {{object.Museum}}
+							</p>
+							<p>{{object.Description | truncate:200}}</p>
+							<p>
+								<a ng-href="#/viewobject/{{object.COId}}"
+									class="btn btn-info btn-small">View</a></a>
+						</div></li>
+				</ul>
+			</div>
+		</div>
+		<!-- end of image row fluid -->
+		</div>
+	</div>
