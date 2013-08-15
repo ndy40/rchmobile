@@ -97,6 +97,7 @@
    
     <icon src="icon.png"/>
 
+
     <!--  white listing urls -->
     <access origin="http://www.sierraleoneheritage.com"></access>
     <!-- Deprecated plugins element. Remove in 3.0 -->
