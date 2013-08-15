@@ -18,16 +18,16 @@
  under the License.
 -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
-        id        = "io.cordova.helloCordova"
+        id        = "uk.ac.sussex.rchmobile"
         version   = "2.0.0">
-    <name>Seirraleon Heritage</name>
+    <name>Sierraleone Heritage</name>
 
     <description>
-       Mobile application for the sierraleone heritage website www.sierraleoneheritage.com
+	Mobile application for www.sierraleoneheritage.org
     </description>
 
-    <author href="uk.linkedin.com/in/cancelerx" email="ne51@sussex.ac.uk,ndy40.ekott@gmail.com">
-        Ndifreke I. Ekott
+    <author href="http://cordova.io" email="dev@cordova.apache.org">
+	Ndifreke Ekott
     </author>
 
     <access origin="*"/>
@@ -36,7 +36,6 @@
     <content src="index.html" />
 
     <preference name="loglevel" value="DEBUG" />
-    <preference name="backgroundColor" value="0xFFF" />
     <!--
       <preference name="splashscreen" value="resourceName" />
       <preference name="backgroundColor" value="0xFFF" />
@@ -54,18 +53,29 @@
     <feature name="Device">
       <param name="android-package" value="org.apache.cordova.Device"/>
     </feature>
-   
+    <feature name="Accelerometer">
+      <param name="android-package" value="org.apache.cordova.AccelListener"/>
+    </feature>
+    <feature name="Compass">
+      <param name="android-package" value="org.apache.cordova.CompassListener"/>
+    </feature>
     <feature name="Media">
       <param name="android-package" value="org.apache.cordova.AudioHandler"/>
     </feature>
     <feature name="Camera">
       <param name="android-package" value="org.apache.cordova.CameraLauncher"/>
     </feature>
+    <feature name="Contacts">
+      <param name="android-package" value="org.apache.cordova.ContactManager"/>
+    </feature>
     <feature name="File">
       <param name="android-package" value="org.apache.cordova.FileUtils"/>
     </feature>
     <feature name="NetworkStatus">
       <param name="android-package" value="org.apache.cordova.NetworkManager"/>
+    </feature>
+    <feature name="Notification">
+      <param name="android-package" value="org.apache.cordova.Notification"/>
     </feature>
     <feature name="Storage">
       <param name="android-package" value="org.apache.cordova.Storage"/>
@@ -75,6 +85,9 @@
     </feature>
     <feature name="Capture">
       <param name="android-package" value="org.apache.cordova.Capture"/>
+    </feature>
+    <feature name="Battery">
+      <param name="android-package" value="org.apache.cordova.BatteryListener"/>
     </feature>
     <feature name="SplashScreen">
       <param name="android-package" value="org.apache.cordova.SplashScreen"/>
@@ -88,18 +101,6 @@
     <feature name="InAppBrowser">
       <param name="android-package" value="org.apache.cordova.InAppBrowser"/>
     </feature>
-    <feature name="SplashScreen">
-    	<param name="android-package" value="org.apache.cordova.SplashScreen" />
-    </feature>
-    <feature name="SplashScreen">
-    	<param name="ios-package" value="CDVSplashScreen" />
-    </feature>
-   
-    <icon src="icon.png"/>
-
-
-    <!--  white listing urls -->
-    <access origin="http://www.sierraleoneheritage.com"></access>
     <!-- Deprecated plugins element. Remove in 3.0 -->
     <plugins>
     </plugins>

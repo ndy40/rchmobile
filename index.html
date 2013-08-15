@@ -60,8 +60,7 @@ and open the template in the editor.
         <script type="text/javascript" src="js/app/services/search.js"></script>
         <script type="text/javascript" src="js/app/vendor/localStorageModule.js"></script>
         <script type="text/javascript" src="js/app/filters/filters.js"></script>
-        <script type="text/javascript" src="js/app/lib/klass.min.js"></script>
-        <script type="text/javascript" src="js/app/lib/code.photoswipe.jquery.min.js"></script>       
+               
         
 <!--        Load required controller-->
         <script type="text/javascript" src="js/app/controller/RootController.js"></script>
@@ -80,7 +79,8 @@ and open the template in the editor.
       <script type="text/javascript" src="cordova.js"></script>
       <script type="text/javascript" src="js/app/vendor/index.js"></script>
       <script type="text/javascript">
-            app.initialize();            
+            //app.initialize();            
+            angular.bootstrap(document,["RchMobile"]);
         </script>
         
     </body>
