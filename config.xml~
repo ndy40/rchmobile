@@ -88,7 +88,7 @@
       <param name="android-package" value="org.apache.cordova.InAppBrowser"/>
     </feature>
     
-    <gap:splash src="splash.png" />
+<gap:splash src="splash.png" />
     <!--  white listing urls -->
     <access origin="http://www.sierraleoneheritage.com"></access>
     <!-- Deprecated plugins element. Remove in 3.0 -->
