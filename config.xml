@@ -36,6 +36,7 @@
     <content src="index.html" />
 
     <preference name="loglevel" value="DEBUG" />
+    <preference name="backgroundColor" value="0xFFF" />
     <!--
       <preference name="splashscreen" value="resourceName" />
       <preference name="backgroundColor" value="0xFFF" />
@@ -87,8 +88,15 @@
     <feature name="InAppBrowser">
       <param name="android-package" value="org.apache.cordova.InAppBrowser"/>
     </feature>
-    
-    <gap:splash src="splash.png" />
+    <feature name="SplashScreen">
+    	<param name="android-package" value="org.apache.cordova.SplashScreen" />
+    </feature>
+    <feature name="SplashScreen">
+    	<param name="ios-package" value="CDVSplashScreen" />
+    </feature>
+   
+    <icon src="icon.png"/>
+
     <!--  white listing urls -->
     <access origin="http://www.sierraleoneheritage.com"></access>
     <!-- Deprecated plugins element. Remove in 3.0 -->
