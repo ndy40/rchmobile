@@ -18,7 +18,7 @@
  under the License.
 -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
-        id        = "2TXD2M7ZH4.uk.ac.sussex.nekott.rchmobile"
+        id        = "uk.ac.sussex.zhang.rchmobile"
         version   = "2.0.0">
     <name>Sierraleone Heritage</name>
 
